@@ -1,0 +1,30 @@
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = user-list__filter, user-list__table, user-list__table-item-[index], user-list__table-item-[index]-avatar, user-list__table-item-[index]-first_name, user-list__table-item-[index]-email, user-list__table-item-[index]-btn-delete
+  Remplazar [index] por el valor ejemplo "user-list__table-item-0"
+-->
+
+
+<div class="contable">
+  <input type="text" placeholder="Search..." name="filterUsr" [(ngModel)]="filterUsr" >
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+      <th>Avatar</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i = index let usr of usrs | filterUserByName:filterUsr   ">
+      <td>{{usr.email}}</td>
+      <td>{{usr.first_name}} {{usr.last_name}}</td>
+      <td><img src="{{usr.avatar}}" alt=""></td>
+      <td> <button class="danger icon-only outlined" (click)="deleteusr(usr.id, usr.first_name, usr.last_name, i)"> <i class="material-icons">delete_forever</i> </button> </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+

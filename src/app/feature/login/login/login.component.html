@@ -1,0 +1,30 @@
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = login__email, login__password, login__password-error, login__email-error, login__btn-login
+-->
+
+
+<form [formGroup]="formulariologin" (ngSubmit)="login()">
+  <div class="card pa-30">
+    <h3 class="mt-0 mb-0">Access</h3>
+        <div class="continputs">
+        <input type="text" placeholder="Email" id="login__email" formControlName="email"  >
+       <p *ngIf="!formulariologin.get('email').valid" class="form-hint error-text" id="login__email-error">Email is required</p>
+      </div>
+      <div class="continputs">
+        <input type="password" placeholder="Password" id="login__password" formControlName="password" >
+        <p *ngIf="formulariologin.get('password').hasError('required')" class="form-hint error-text" id="login__password-error">Password is required</p>
+        <p *ngIf="formulariologin.get('password').hasError('minlength')" class="form-hint error-text">The minimum of characters will be 8</p>
+      </div>
+    
+<button type="submit" id="login__btn-login-error">Login</button>
+
+
+     
+<div *ngIf="alerterror" class="alert filled error">Data error</div>
+
+  </div>
+
+
+</form>
+

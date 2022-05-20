@@ -1,0 +1,23 @@
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = nav-bar__btn-list-user, nav-bar__btn-create-user, nav-bar__btn-logout
+-->
+
+<header class="header">
+  <nav class="nav">
+    <a href="" class="logo nav-link">Ceiba | Prueba</a>
+  
+  <label class="nav-toggle" for="check">
+    <span class="material-icons">
+      menu
+      </span>
+    </label>
+    <input type="checkbox" name="" id="check" class="check">
+    
+    <ul class="nav-menu">
+      <li class="nav-menu-item"><button id="nav-bar__btn-list-user" class="nav-link secondary   text" (click)="rutas(1)">List</button></li>
+      <li class="nav-menu-item"><button id="nav-bar__btn-create-user" class="nav-link secondary   text" (click)="rutas(2)">Create</button></li>
+      <li class="nav-menu-item"><button id="nav-bar__btn-logout" class="nav-link danger small"  (click)="logout()">Exit</button></li>
+    </ul>
+  </nav>
+</header>

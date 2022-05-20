@@ -1,0 +1,23 @@
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = user-create__name, user-create__name-error, user-create__job, user-create__job-error, user-create__btn-create
+-->
+<div class="container">
+  <form [formGroup]="formularioregister" (ngSubmit)="register()">
+    <div class="card pa-30">
+      <h3 class="mt-0 mb-0">Register user</h3>
+      <div class="contentinputs">
+    <input type="text" placeholder="Name" formControlName="name" id="user-create__name">
+    <p *ngIf="!formularioregister.get('name').valid"  class="form-hint error-text" id="user-create__name-errorr">Name is required ...</p>
+  </div>
+  <div class="contentinputs">
+    <input type="text" placeholder="Job" formControlName="job" id="user-create__job">
+    <p *ngIf="!formularioregister.get('job').valid" class="form-hint error-text" id="user-create__job-error">Job is required ...</p>
+  </div>
+  <div class="contentinputs">
+    <button type="submit" [disabled]="!formularioregister.valid" id="user-create__btn-create">Save</button>
+    <button routerLink="/users/list" class="secondary">Cancel</button>
+  </div>
+    </div>
+  </form>
+</div>
