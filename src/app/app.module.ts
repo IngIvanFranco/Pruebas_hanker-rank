@@ -6,9 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthorizationService } from '@feature/users/shared/interceptor/authorization.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,7 @@ import { AuthorizationService } from '@feature/users/shared/interceptor/authoriz
       provide:HTTP_INTERCEPTORS,
       useClass: AuthorizationService,
       multi:true
-    }
+    },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

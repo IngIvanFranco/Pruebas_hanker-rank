@@ -6,8 +6,8 @@
 
 
 <div class="contable">
-  <input type="text" placeholder="Search..." name="filterUsr" [(ngModel)]="filterUsr" >
-<table>
+  <input type="search" placeholder="Search..." name="filterUserByName" id="user-list__filter" [(ngModel)]="filterUserByName" >
+<table id="user-list__table">
   <thead>
     <tr>
       <th>Email</th>
@@ -17,11 +17,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let i = index let usr of usrs | filterUserByName:filterUsr   ">
-      <td>{{usr.email}}</td>
-      <td>{{usr.first_name}} {{usr.last_name}}</td>
-      <td><img src="{{usr.avatar}}" alt=""></td>
-      <td> <button class="danger icon-only outlined" (click)="deleteusr(usr.id, usr.first_name, usr.last_name, i)"> <i class="material-icons">delete_forever</i> </button> </td>
+    <tr *ngFor="let usr of usrs | filterUserByName:filterUserByName , let i = index " id="user-list__table-item-{{i}}">
+      <td id="user-list__table-item-{{i}}-email">{{usr.email}}</td>
+      <td id="user-list__table-item-{{i}}-first_name">{{usr.first_name}}</td>
+      <td ><img id="user-list__table-item-{{i}}-avatar" src="{{usr.avatar}}" alt=""></td>
+      <td> <button class="danger icon-only outlined" (click)="deleteusr(usr.id, usr.first_name, usr.last_name, i)" id="user-list__table-item-{{i}}-btn-delete"> <i class="material-icons">delete_forever</i> </button> </td>
     </tr>
   </tbody>
 </table>

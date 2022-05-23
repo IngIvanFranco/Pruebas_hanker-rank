@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Report } from 'notiflix';
-
 import { UsersService } from '../create-user/shared/services/users/users.service';
+
+
 
 
 
@@ -13,7 +14,7 @@ import { UsersService } from '../create-user/shared/services/users/users.service
 export class ListUsersComponent implements OnInit {
   data:[]
   usrs:[]
-  filterUsr=''
+  filterUserByName=''
 
   constructor(private conexapi:UsersService,){
 

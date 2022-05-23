@@ -24,7 +24,8 @@ import { FormsModule, ReactiveFormsModule, Validators  } from '@angular/forms';
     CommonModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   
   ],
   providers:[HttpClientModule,

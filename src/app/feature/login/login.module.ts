@@ -21,7 +21,9 @@ import {HttpClientModule} from '@angular/common/http';
   
     
   ],
-  providers: [ HttpClientModule, ]
+  providers: [ HttpClientModule,]
+
+    
   
 })
 export class LoginModule {

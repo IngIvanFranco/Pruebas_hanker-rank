@@ -14,10 +14,10 @@
     </label>
     <input type="checkbox" name="" id="check" class="check">
     
-    <ul class="nav-menu">
-      <li class="nav-menu-item"><button id="nav-bar__btn-list-user" class="nav-link secondary   text" (click)="rutas(1)">List</button></li>
-      <li class="nav-menu-item"><button id="nav-bar__btn-create-user" class="nav-link secondary   text" (click)="rutas(2)">Create</button></li>
-      <li class="nav-menu-item"><button id="nav-bar__btn-logout" class="nav-link danger small"  (click)="logout()">Exit</button></li>
-    </ul>
+    <div class="nav-menu">
+      <a id="nav-bar__btn-list-user" class="secondary text" routerLink="/users/list" >List</a>
+     <a id="nav-bar__btn-create-user" class="secondary text" routerLink="/users/create">Create</a>
+     <a id="nav-bar__btn-logout" class="danger text"  (click)="logout()">Exit</a>
+    </div>
   </nav>
 </header>

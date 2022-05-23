@@ -14,13 +14,13 @@
       <div class="continputs">
         <input type="password" placeholder="Password" id="login__password" formControlName="password" >
         <p *ngIf="formulariologin.get('password').hasError('required')" class="form-hint error-text" id="login__password-error">Password is required</p>
-        <p *ngIf="formulariologin.get('password').hasError('minlength')" class="form-hint error-text">The minimum of characters will be 8</p>
+        <p *ngIf="formulariologin.get('password').hasError('minlength')" id="login__password-error" class="form-hint error-text">The minimum of characters will be 8</p>
       </div>
-    
-<button type="submit" id="login__btn-login-error">Login</button>
+
+<button type="submit" id="login__btn-login">Login</button>
 
 
-     
+
 <div *ngIf="alerterror" class="alert filled error">Data error</div>
 
   </div>

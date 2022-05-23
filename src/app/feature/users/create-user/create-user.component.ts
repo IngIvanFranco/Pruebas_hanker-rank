@@ -38,7 +38,7 @@ newusr
 
 
 public register(){
-if (this.formularioregister.valid) {
+  this.redirectToListUsers()
   Loading.circle()
   this.conexservice.createUser(this.formularioregister.value).subscribe(res=>{
     this.newusr =res
@@ -49,7 +49,7 @@ if (this.formularioregister.valid) {
       `New User: ${this.newusr['name']}`,
       'ok'
     )
-    this.redirectToListUsers()
+    
     
   },err=>{
     Loading.remove()
@@ -60,7 +60,7 @@ if (this.formularioregister.valid) {
     )
     this.redirectToListUsers()
   })
-}
+
 }
 
 

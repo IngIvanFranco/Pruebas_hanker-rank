@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { LoginService } from '../shared/services/login/login.service';
+import { Observable, async } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ import { LoginService } from '../shared/services/login/login.service';
 })
 export class LoginComponent implements OnInit{
    
-     
+      token :{}
       alerterror:boolean
       formulariologin:FormGroup
       respuesta :[]
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit{
   constructor(
     private readonly router: Router,
     public formulario:FormBuilder,
-    private serviciologin:LoginService
+    private serviciologin:LoginService,
+    private rutas:Router
   ) {
     this.formulariologin = this.formulario.group({
       email:['',[Validators.email, Validators.required]],
@@ -26,8 +29,27 @@ export class LoginComponent implements OnInit{
     })
   }
   ngOnInit(): void {
-
+ 
+if (localStorage.getItem('token')!=null) {
+  this.redirectUsers()
+}
   }
+
+
+  public  login(): void{
+      
+    
+   this.serviciologin.login(this.formulariologin.value).subscribe(res=>{
+    
+            this.token =res
+      localStorage.setItem('token',JSON.stringify(res['token']))
+
+      this.redirectUsers()
+    })
+
+  
+           
+      }
 
 
 
@@ -39,34 +61,11 @@ export class LoginComponent implements OnInit{
   }
 
 
- public login(){
-   
-    if (this.formulariologin.valid) {
-     
-this.serviciologin.login(this.formulariologin.value).subscribe(res => {
-  this.respuesta =res
-  this.alerterror=false
 
-  if (this.respuesta['token']) {
+
+
   
-    localStorage.setItem('token',this.respuesta['token'])
-    this.redirectUsers()
-  }
-  
-}, err=>{
-  
-  
-  this.alerterror=true
-})
 
 
-
-   }else{
-    
-    this.alerterror=true
-   }
- 
-
-    }
 
 }
